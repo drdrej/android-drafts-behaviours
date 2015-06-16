@@ -13,7 +13,7 @@ import com.touchableheroes.drafts.core.Log;
  *
  * Created by asiebert on 15.12.14.
  */
-public abstract class BasicActivity extends ActionBarActivity {
+public abstract class BasicActivity extends  ActionBarActivity {
 
     private static final Log LOGGER = Log.instance("APP");
 
