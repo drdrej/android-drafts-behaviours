@@ -2,7 +2,7 @@ package com.touchableheroes.drafts.behaviours;
 
 import android.content.res.Configuration;
 
-import com.touchableheroes.drafts.behaviours.lifecycle.ICreateSupported;
+import com.touchableheroes.drafts.behaviours.lifecycle.supports.ICreateSupported;
 
 /**
  * Created by asiebert on 30.12.14.

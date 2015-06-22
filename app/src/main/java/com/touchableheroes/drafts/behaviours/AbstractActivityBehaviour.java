@@ -3,7 +3,7 @@ package com.touchableheroes.drafts.behaviours;
 
 import android.app.Activity;
 
-import com.touchableheroes.drafts.behaviours.lifecycle.IsEnableSupported;
+import com.touchableheroes.drafts.behaviours.lifecycle.supports.IsEnableSupported;
 
 
 /**

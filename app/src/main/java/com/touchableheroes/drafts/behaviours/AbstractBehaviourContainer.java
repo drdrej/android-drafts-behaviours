@@ -2,14 +2,19 @@ package com.touchableheroes.drafts.behaviours;
 
 
 
-import com.touchableheroes.drafts.behaviours.lifecycle.ICreateSupported;
-import  com.touchableheroes.drafts.behaviours.lifecycle.IsEnableSupported;
+import com.touchableheroes.drafts.behaviours.lifecycle.supports.ICreateSupported;
+import com.touchableheroes.drafts.behaviours.lifecycle.supports.IsEnableSupported;
+import com.touchableheroes.drafts.behaviours.lifecycle.supports.IsPauseSupported;
+import com.touchableheroes.drafts.behaviours.lifecycle.supports.IsSupported;
 import com.touchableheroes.drafts.core.ExceptionUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * @author asiebert
+ * @param <T>
+ */
 public class AbstractBehaviourContainer<T> implements IsEnableSupported {
 
     private final List<T> behaviours = new ArrayList<>();
@@ -19,15 +24,16 @@ public class AbstractBehaviourContainer<T> implements IsEnableSupported {
     }
 
     public void onCreate() {
-        for (final Object behaviour :  behaviours) {
-            if( !(behaviour instanceof ICreateSupported)) {
-                // LOG: skip
-                continue;
+        execute(new Call() {
+
+            boolean when() {
+                return match(ICreateSupported.class);
             }
 
-            final ICreateSupported supported = (ICreateSupported) behaviour;
-            supported.onCreate();
-        }
+            void then() {
+                ((ICreateSupported) behaviour()).onCreate();
+            }
+        });
     }
 
 
@@ -75,5 +81,49 @@ public class AbstractBehaviourContainer<T> implements IsEnableSupported {
 
         this.behaviours.add(behaviour);
     }
+
+
+    public void execute(final Call call) {
+        // Class<? extends IsSupported> type
+        // gehe ueber alle callbacks
+        // finde den passenden typen
+        // erstelle exec
+        for (final Object behaviour :  behaviours) {
+
+            if( call.when() ) {
+                call.then();
+            }
+
+            //final ICreateSupported supported = (ICreateSupported) behaviour;
+            //supported.onCreate();
+        }
+    }
+
+    public static abstract class Call {
+
+        private IsSupported behaviour;
+
+        public Call() {
+            ;
+        }
+
+        void setBehaviour(final IsSupported type) {
+            this.behaviour = type;
+        }
+
+        boolean match(final Class<? extends IsSupported> checkAgainst) {
+            return checkAgainst != null
+                    && checkAgainst.isAssignableFrom(this.behaviour.getClass());
+        }
+
+        public IsSupported behaviour() {
+            return behaviour;
+        }
+
+        abstract boolean when();
+
+        abstract void then();
+    }
+
 
 }

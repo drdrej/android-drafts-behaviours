@@ -2,7 +2,7 @@ package com.touchableheroes.drafts.behaviours;
 
 import android.content.Context;
 
-import com.touchableheroes.drafts.behaviours.lifecycle.IContextSupported;
+import com.touchableheroes.drafts.behaviours.lifecycle.supports.IContextSupported;
 
 /**
  * Created by asiebert on 30.12.14.
