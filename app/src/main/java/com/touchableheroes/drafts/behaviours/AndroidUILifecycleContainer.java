@@ -1,15 +1,15 @@
 package com.touchableheroes.drafts.behaviours;
 
-import com.touchableheroes.drafts.behaviours.lifecycle.AndroidSimpleUILifecycle;
-import com.touchableheroes.drafts.behaviours.lifecycle.supports.IOwner;
+import com.touchableheroes.drafts.behaviours.lifecycle.SimpleUILifecycle;
 import com.touchableheroes.drafts.behaviours.lifecycle.supports.IsPauseSupported;
 import com.touchableheroes.drafts.behaviours.lifecycle.supports.IsResumeSupported;
 import com.touchableheroes.drafts.behaviours.lifecycle.supports.IsStopSupported;
+import com.touchableheroes.drafts.behaviours.lifecycle.supports.IsOwnerSupported;
 
 /**
  * Created by asiebert on 19.06.15.
  */
-public class AndroidUILifecycleContainer<C> extends AbstractBehaviourContainer<AndroidSimpleUILifecycle> implements AndroidSimpleUILifecycle, IOwner<C> {
+public class AndroidUILifecycleContainer<C> extends AbstractBehaviourContainer<SimpleUILifecycle> implements SimpleUILifecycle, IsOwnerSupported<C> {
 
     private final C owner;
 
@@ -19,7 +19,7 @@ public class AndroidUILifecycleContainer<C> extends AbstractBehaviourContainer<A
 
 
     @Override
-    public C getOwner() {
+    public C owner() {
         return owner;
     }
 

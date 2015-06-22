@@ -9,7 +9,7 @@ import com.touchableheroes.drafts.behaviours.lifecycle.supports.IsStopSupported;
 /**
  * Created by asiebert on 19.06.15.
  */
-public interface AndroidSimpleUILifecycle extends ICreateSupported,
+public interface SimpleUILifecycle extends ICreateSupported,
         IsPauseSupported,
         IsStopSupported,
         IsResumeSupported,

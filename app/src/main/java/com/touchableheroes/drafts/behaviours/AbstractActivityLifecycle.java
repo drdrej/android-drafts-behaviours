@@ -3,18 +3,19 @@ package com.touchableheroes.drafts.behaviours;
 
 import android.app.Activity;
 
+import com.touchableheroes.drafts.behaviours.lifecycle.IActivityLifecycle;
 import com.touchableheroes.drafts.behaviours.lifecycle.supports.IsEnableSupported;
 
 
 /**
  * Created by asiebert on 15.12.14.
  */
-public class AbstractActivityBehaviour
-       implements IsEnableSupported, IActivityBehaviour {
+public class AbstractActivityLifecycle
+       implements IsEnableSupported, IActivityLifecycle {
 
     private final Activity owner;
 
-    protected AbstractActivityBehaviour( final Activity owner) {
+    protected AbstractActivityLifecycle(final Activity owner) {
         this.owner = owner;
     }
 

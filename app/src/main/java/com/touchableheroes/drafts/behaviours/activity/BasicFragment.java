@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 
 import com.touchableheroes.drafts.Logger;
 import com.touchableheroes.drafts.behaviours.AndroidUILifecycleContainer;
-import com.touchableheroes.drafts.behaviours.lifecycle.supports.IOwner;
 
 /**
  * Created by asiebert on 19.06.15.

@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 
 import com.touchableheroes.drafts.behaviours.ActivityBehavioursContainer;
-import com.touchableheroes.drafts.behaviours.lifecycle.IActivityConfig;
+import com.touchableheroes.drafts.behaviours.config.IActivityConfig;
 import com.touchableheroes.drafts.core.Log;
 
 /**

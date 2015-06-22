@@ -1,22 +1,21 @@
 package com.touchableheroes.drafts.behaviours.impl;
 
 import android.app.Activity;
-import android.provider.SyncStateContract;
 
-import com.touchableheroes.drafts.behaviours.AbstractActivityBehaviour;
-import com.touchableheroes.drafts.behaviours.IActivityBehaviour;
+import com.touchableheroes.drafts.behaviours.AbstractActivityLifecycle;
+import com.touchableheroes.drafts.behaviours.lifecycle.IActivityLifecycle;
 import com.touchableheroes.drafts.log.Logger;
 
 /**
  * Created by asiebert on 15.12.14.
  */
-public class LogLifecycleBehaviour extends AbstractActivityBehaviour implements IActivityBehaviour {
+public class LogActivityBehaviour extends AbstractActivityLifecycle implements IActivityLifecycle {
 
-    private static Logger LOG = Logger.create(LogLifecycleBehaviour.class);
+    private static Logger LOG = Logger.create(LogActivityBehaviour.class);
 
     private final Logger logger;
 
-    public LogLifecycleBehaviour(Activity owner) {
+    public LogActivityBehaviour(Activity owner) {
         super(owner);
 
         this.logger = Logger.create(owner.getClass());

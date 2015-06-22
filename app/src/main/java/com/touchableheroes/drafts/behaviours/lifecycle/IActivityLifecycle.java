@@ -1,4 +1,4 @@
-package com.touchableheroes.drafts.behaviours;
+package com.touchableheroes.drafts.behaviours.lifecycle;
 
 import com.touchableheroes.drafts.behaviours.lifecycle.supports.ICreateSupported;
 import com.touchableheroes.drafts.behaviours.lifecycle.supports.IsEnableSupported;
@@ -6,7 +6,7 @@ import com.touchableheroes.drafts.behaviours.lifecycle.supports.IsEnableSupporte
 /**
  * Created by asiebert on 29.11.14.
  */
-public interface IActivityBehaviour extends IsEnableSupported, ICreateSupported {
+public interface IActivityLifecycle extends IsEnableSupported, ICreateSupported {
 
     public void onResume();
 
