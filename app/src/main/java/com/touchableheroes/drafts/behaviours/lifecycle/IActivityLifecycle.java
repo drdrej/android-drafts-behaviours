@@ -10,13 +10,6 @@ import com.touchableheroes.drafts.behaviours.lifecycle.supports.IsStopSupported;
  * Created by asiebert on 29.11.14.
  */
 public interface IActivityLifecycle extends SimpleUILifecycle,
-        IsEnableSupported,
-
-        ICreateSupported,
-        IsStopSupported,
-        IsResumeSupported,
-        IsPauseSupported {
-
-
+        IsEnableSupported {
 
 }

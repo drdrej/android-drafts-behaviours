@@ -15,9 +15,9 @@ import java.util.List;
  * @author asiebert
  * @param <T>
  */
-public class AbstractBehaviourContainer<T> implements IsEnableSupported {
+public class AbstractBehaviourContainer<T extends IsSupported> implements IsEnableSupported {
 
-    private final List<T> behaviours = new ArrayList<>();
+    private final List<IsSupported> behaviours = new ArrayList<>();
 
     public AbstractBehaviourContainer() {
         ;
@@ -69,13 +69,13 @@ public class AbstractBehaviourContainer<T> implements IsEnableSupported {
         }
     }
 
-    public List<T> bevahoirs() {
+    public List<IsSupported> bevahoirs() {
         return behaviours;
     }
 
 
 
-    public void add(final T behaviour) {
+    public void add(final IsSupported behaviour) {
         if( behaviour == null )
             throw ExceptionUtil.paramNPECheck("behavior");
 

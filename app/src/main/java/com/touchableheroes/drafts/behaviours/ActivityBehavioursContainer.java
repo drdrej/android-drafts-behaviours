@@ -6,43 +6,12 @@ import com.touchableheroes.drafts.behaviours.lifecycle.IActivityLifecycle;
 
 /**
  * Created by asiebert on 15.12.14.
- */
-@Deprecated
-public class ActivityBehavioursContainer
-            extends AbstractBehaviourContainer<IActivityLifecycle>
+ */public class ActivityBehavioursContainer
+            extends AndroidUILifecycleContainer<Activity>
             implements IActivityLifecycle {
 
-    private final Activity owner;
-
     public ActivityBehavioursContainer(final Activity owner) {
-        this.owner = owner;
-    }
-
-    public void onCreate() {
-        for (final IActivityLifecycle behaviour :  bevahoirs()) {
-            behaviour.onCreate();
-        }
-    }
-
-    @Override
-    public void onResume() {
-        for (final IActivityLifecycle behaviour :  bevahoirs()) {
-            behaviour.onResume();
-        }
-    }
-
-    @Override
-    public void onPause() {
-        for (final IActivityLifecycle behaviour :  bevahoirs()) {
-            behaviour.onPause();
-        }
-    }
-
-    @Override
-    public void onStop() {
-        for (final IActivityLifecycle behaviour : bevahoirs()) {
-            behaviour.onPause();
-        }
+        super(owner);
     }
 
 }

@@ -1,4 +1,4 @@
-package com.touchableheroes.drafts.behaviours.activity;
+package com.touchableheroes.drafts.behaviours.component;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

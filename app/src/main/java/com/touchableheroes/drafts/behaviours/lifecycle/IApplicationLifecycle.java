@@ -13,14 +13,6 @@ import com.touchableheroes.drafts.behaviours.lifecycle.supports.IsTerminateSuppo
  * Created by asiebert on 30.12.14.
  */
 public interface IApplicationLifecycle
-        extends ICreateSupported,
-        IsTerminateSupported,
-        IsStopSupported,
-        IsLowMemorySupported,
-        IsResumeSupported,
-        IsPauseSupported {
-
-
-    public void onConfigurationChanged(final Configuration newConfig);
+        extends SimpleUILifecycle {
 
 }
