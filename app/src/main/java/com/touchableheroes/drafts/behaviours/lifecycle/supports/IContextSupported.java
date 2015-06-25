@@ -9,7 +9,7 @@ import com.touchableheroes.drafts.behaviours.lifecycle.supports.IsSupported;
  */
 public interface IContextSupported extends IsSupported {
 
-    public void bind(final Context context);
+    // public void bind(final Context context);
 
     public Context context();
 
