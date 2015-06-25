@@ -38,4 +38,11 @@ public class ActivityBehavioursContainer
         }
     }
 
+    @Override
+    public void onStop() {
+        for (final IActivityLifecycle behaviour : bevahoirs()) {
+            behaviour.onPause();
+        }
+    }
+
 }

@@ -1,5 +1,6 @@
 package com.touchableheroes.drafts.behaviours;
 
+import android.app.Application;
 import android.content.Context;
 
 import com.touchableheroes.drafts.behaviours.lifecycle.IApplicationLifecycle;
@@ -8,20 +9,16 @@ import com.touchableheroes.drafts.behaviours.lifecycle.supports.IContextSupporte
 /**
  * Created by asiebert on 30.12.14.
  */
-public abstract class AbstractApplicationLifecycle implements IApplicationLifecycle, IContextSupported {
+public abstract class AbstractApplicationLifecycle
+        extends AndroidUILifecycleContainer<Application>
+        implements IApplicationLifecycle, IContextSupported {
 
-    private Context ctx;
-
-    @Override
-    public void bind(final Context context) {
-        if( context == null )
-            return;
-
-        this.ctx = context;
+    public AbstractApplicationLifecycle(final Application owner) {
+        super(owner);
     }
 
     @Override
     public Context context() {
-        return this.ctx;
+        return this.owner().getApplicationContext();
     }
 }
