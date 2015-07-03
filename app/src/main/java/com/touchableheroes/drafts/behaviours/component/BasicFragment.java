@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 
 import com.touchableheroes.drafts.Logger;
 import com.touchableheroes.drafts.behaviours.AndroidUILifecycleBehavioursContainer;
+import com.touchableheroes.drafts.behaviours.config.IActivityConfig;
+import com.touchableheroes.drafts.behaviours.config.IFragmentConfig;
 
 /**
  * Created by asiebert on 19.06.15.
@@ -66,4 +68,7 @@ public abstract class BasicFragment extends Fragment {
         super.onStop();
         behaviours.onStop();
     }
+
+    public abstract IFragmentConfig config();
+
 }
