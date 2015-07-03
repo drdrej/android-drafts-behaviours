@@ -39,7 +39,7 @@ public abstract class BasicFragment extends Fragment {
         return root;
     }
 
-    abstract void onConfigBehaviours();
+    protected abstract void onConfigBehaviours();
 
 
     public AndroidUILifecycleBehavioursContainer behaviours() {
