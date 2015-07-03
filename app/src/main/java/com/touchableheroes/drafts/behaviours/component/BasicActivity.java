@@ -24,7 +24,7 @@ public abstract class BasicActivity extends  ActionBarActivity {
     public void onCreate(final Bundle bundle) {
         super.onCreate(bundle);
 
-        setContentView( config().initialContentView() );
+        setContentView( config().getLayoutId() );
 
         LOGGER.debug("onCreate() called");
 

@@ -3,8 +3,6 @@ package com.touchableheroes.drafts.behaviours.config;
 /**
  * Created by asiebert on 15.12.14.
  */
-public interface IActivityConfig {
-
-    public int initialContentView();
+public interface IActivityConfig extends IUIConfig {
 
 }

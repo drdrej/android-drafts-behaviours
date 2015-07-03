@@ -5,8 +5,7 @@ import android.support.v4.app.Fragment;
 /**
  * Created by asiebert on 03.07.15.
  */
-public interface IFragmentConfig {
+public interface IFragmentConfig extends IUIConfig {
 
-    public int getLayoutId();
 
 }
