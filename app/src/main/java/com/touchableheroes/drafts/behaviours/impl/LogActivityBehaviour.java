@@ -2,8 +2,7 @@ package com.touchableheroes.drafts.behaviours.impl;
 
 import android.app.Activity;
 
-import com.touchableheroes.drafts.behaviours.ActivityBehavioursContainer;
-import com.touchableheroes.drafts.behaviours.AndroidUILifecycleContainer;
+import com.touchableheroes.drafts.behaviours.AndroidUILifecycleBehavioursContainer;
 import com.touchableheroes.drafts.behaviours.lifecycle.IActivityLifecycle;
 import com.touchableheroes.drafts.behaviours.lifecycle.supports.IsEnableSupported;
 import com.touchableheroes.drafts.log.Logger;
@@ -11,7 +10,7 @@ import com.touchableheroes.drafts.log.Logger;
 /**
  * Created by asiebert on 15.12.14.
  */
-public class LogActivityBehaviour extends AndroidUILifecycleContainer<Activity> implements IActivityLifecycle, IsEnableSupported {
+public class LogActivityBehaviour extends AndroidUILifecycleBehavioursContainer<Activity> implements IActivityLifecycle, IsEnableSupported {
 
     private static Logger LOG = Logger.create(LogActivityBehaviour.class);
 

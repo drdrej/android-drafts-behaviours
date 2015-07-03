@@ -84,20 +84,51 @@ public class AbstractBehaviourContainer<T extends IsSupported> implements IsEnab
 
 
     public void execute(final Call call) {
-        // Class<? extends IsSupported> type
-        // gehe ueber alle callbacks
-        // finde den passenden typen
-        // erstelle exec
         for (final Object behaviour :  behaviours) {
 
             if( call.when() ) {
                 call.then();
             }
-
-            //final ICreateSupported supported = (ICreateSupported) behaviour;
-            //supported.onCreate();
         }
     }
+
+    /**
+     * Returns the last accepted by type value.
+     *
+     * @param call
+     * @param typeCheck
+     * @param <T>
+     *
+     * @return
+     */
+    public <T> T execute(final Function call, final Class<T> typeCheck) {
+        T rval = null;
+
+        for (final Object behaviour :  behaviours) {
+
+            if( call.when() ) {
+                final Object result = call.then();
+
+                if( result == null ) {
+                    System.out.println( "Function name=" + call.behaviour() + " returns null result.");
+                    rval = (T) result;
+                }
+
+                if( typeCheck == null ) {
+                    System.out.println( "Function name=" + call.behaviour() + " returns null because no typechecker. skipped result = " + result);
+                    rval = null;
+                }
+
+                if( typeCheck.isAssignableFrom(result.getClass()) ) {
+                    System.out.println( "Function name=" + call.behaviour() + " returns result = " + result + ".");
+                    rval = (T) result;
+                }
+            }
+        }
+
+        return (T) rval;
+    }
+
 
     public static abstract class Call {
 
@@ -123,6 +154,33 @@ public class AbstractBehaviourContainer<T extends IsSupported> implements IsEnab
         abstract boolean when();
 
         abstract void then();
+    }
+
+
+    public static abstract class Function {
+
+        private IsSupported behaviour;
+
+        public Function() {
+            ;
+        }
+
+        void setBehaviour(final IsSupported type) {
+            this.behaviour = type;
+        }
+
+        boolean match(final Class<? extends IsSupported> checkAgainst) {
+            return checkAgainst != null
+                    && checkAgainst.isAssignableFrom(this.behaviour.getClass());
+        }
+
+        public IsSupported behaviour() {
+            return behaviour;
+        }
+
+        abstract boolean when();
+
+        abstract <T> T then();
     }
 
 
