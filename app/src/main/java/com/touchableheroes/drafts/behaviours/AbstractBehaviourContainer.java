@@ -84,7 +84,9 @@ public class AbstractBehaviourContainer<T extends IsSupported> implements IsEnab
 
 
     public void execute(final Call call) {
-        for (final Object behaviour :  behaviours) {
+        for (final IsSupported behaviour :  behaviours) {
+
+            call.setBehaviour(behaviour);
 
             if( call.when() ) {
                 call.then();
@@ -104,7 +106,8 @@ public class AbstractBehaviourContainer<T extends IsSupported> implements IsEnab
     public <T> T execute(final Function call, final Class<T> typeCheck) {
         T rval = null;
 
-        for (final Object behaviour :  behaviours) {
+        for (final IsSupported behaviour :  behaviours) {
+            call.setBehaviour(behaviour);
 
             if( call.when() ) {
                 final Object result = call.then();
