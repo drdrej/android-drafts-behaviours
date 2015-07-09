@@ -10,11 +10,12 @@ import com.touchableheroes.drafts.Logger;
 import com.touchableheroes.drafts.behaviours.AndroidUILifecycleBehavioursContainer;
 import com.touchableheroes.drafts.behaviours.config.IActivityConfig;
 import com.touchableheroes.drafts.behaviours.config.IFragmentConfig;
+import com.touchableheroes.drafts.behaviours.config.IHasConfiguration;
 
 /**
  * Created by asiebert on 19.06.15.
  */
-public abstract class BasicFragment extends Fragment {
+public abstract class BasicFragment extends Fragment implements IHasConfiguration<IFragmentConfig> {
 
     private static final Logger LOGGER = Logger.create(BasicFragment.class);
 
@@ -68,7 +69,5 @@ public abstract class BasicFragment extends Fragment {
         super.onStop();
         behaviours.onStop();
     }
-
-    public abstract IFragmentConfig config();
 
 }

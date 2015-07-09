@@ -5,6 +5,7 @@ import android.support.v7.app.ActionBarActivity;
 
 import com.touchableheroes.drafts.behaviours.ActivityBehavioursContainer;
 import com.touchableheroes.drafts.behaviours.config.IActivityConfig;
+import com.touchableheroes.drafts.behaviours.config.IHasConfiguration;
 import com.touchableheroes.drafts.core.Log;
 
 /**
@@ -13,7 +14,7 @@ import com.touchableheroes.drafts.core.Log;
  *
  * Created by asiebert on 15.12.14.
  */
-public abstract class BasicActivity extends  ActionBarActivity {
+public abstract class BasicActivity extends  ActionBarActivity implements IHasConfiguration<IActivityConfig> {
 
     private static final Log LOGGER = Log.instance("APP");
 
@@ -45,8 +46,6 @@ public abstract class BasicActivity extends  ActionBarActivity {
 
         behaviours.onPause();
     }
-
-    protected abstract IActivityConfig config();
 
     @Override
     public void onResume() {
